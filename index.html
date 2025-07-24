@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeopardy - Juego de TV</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header con título y puntaje -->
+        <header class="game-header">
+            <h1 class="game-title">JEOPARDY</h1>
+            <div class="scoreboard">
+                <div class="player-score">
+                    <span class="player-name">Jugador 1</span>
+                    <span class="score" id="player1-score">$0</span>
+                </div>
+                <div class="player-score">
+                    <span class="player-name">Jugador 2</span>
+                    <span class="score" id="player2-score">$0</span>
+                </div>
+                <div class="player-score">
+                    <span class="player-name">Jugador 3</span>
+                    <span class="score" id="player3-score">$0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Tablero principal -->
+        <main class="game-board" id="game-board">
+            <!-- Las categorías y preguntas se generarán dinámicamente -->
+        </main>
+
+        <!-- Modal para mostrar preguntas -->
+        <div class="modal-overlay" id="modal-overlay">
+            <div class="question-modal">
+                <div class="question-header">
+                    <span class="category-name" id="modal-category"></span>
+                    <span class="question-value" id="modal-value"></span>
+                </div>
+                <div class="question-content">
+                    <p class="question-text" id="question-text"></p>
+                    <div class="timer-container">
+                        <div class="timer" id="timer">30</div>
+                        <div class="timer-bar">
+                            <div class="timer-fill" id="timer-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="question-controls">
+                    <button class="btn btn-reveal" id="reveal-answer">Revelar Respuesta</button>
+                    <div class="answer-section" id="answer-section" style="display: none;">
+                        <p class="answer-text" id="answer-text"></p>
+                        <div class="scoring-buttons">
+                            <button class="btn btn-correct" onclick="scoreAnswer(true)">Correcto</button>
+                            <button class="btn btn-incorrect" onclick="scoreAnswer(false)">Incorrecto</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-close" id="close-modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de control -->
+        <div class="control-panel">
+            <button class="btn btn-reset" onclick="resetGame()">Reiniciar Juego</button>
+            <button class="btn btn-settings" onclick="toggleSettings()">Configuración</button>
+        </div>
+
+        <!-- Panel de configuración -->
+        <div class="settings-panel" id="settings-panel" style="display: none;">
+            <h3>Configuración</h3>
+            <div class="setting-group">
+                <label>Tiempo por pregunta (segundos):</label>
+                <input type="number" id="timer-setting" value="30" min="10" max="60">
+            </div>
+            <div class="setting-group">
+                <label>Sonidos:</label>
+                <input type="checkbox" id="sound-setting" checked>
+            </div>
+            <div class="setting-group">
+                <label>Jugador actual:</label>
+                <select id="current-player">
+                    <option value="1">Jugador 1</option>
+                    <option value="2">Jugador 2</option>
+                    <option value="3">Jugador 3</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
