@@ -1,0 +1,19 @@
+title: "Juego Jeopardy - Evento Presencial"
+description: "Juego interactivo tipo programa de TV para eventos presenciales con proyección en pantalla grande"
+author: "Emilio Gril"
+url: "https://emiliogril.github.io"
+baseurl: "/juegosJeopardy"
+
+# SEO
+lang: es
+locale: es_ES
+
+# GitHub Pages
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude files
+exclude:
+  - README.md
+  - .gitignore
